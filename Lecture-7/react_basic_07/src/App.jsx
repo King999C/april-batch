@@ -1,20 +1,24 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import ApiCalling from "./components/ApiCalling";
+import Parent from "./components/Parent";
 
 function App(){
 
-  const [count,setCount] = useState(0);
+  // const [count,setCount] = useState(0);
   
-  useEffect(()=>{
-    if(count === 0){ console.log("Mounted") }
-    else if(count>0 && count<5){ console.log("updated")  }
-    else if(count === 5){
-      return ()=>{ console.log("Unmounted") }
-    }
-  } , [count])
+  // useEffect(()=>{
+  //   if(count === 0){ console.log("Mounted") }
+  //   else if(count>0 && count<5){ console.log("updated")  }
+  //   else if(count === 5){
+  //     return ()=>{ console.log("Unmounted") }
+  //   }
+  // } , [count])
 
   return(
     <>
-      <h1  onClick={()=>setCount(count+1)}>count - {count}</h1>
+      {/* <h1  onClick={()=>setCount(count+1)}>count - {count}</h1> */}
+      {/* <Parent /> */}
+      <ApiCalling />
     </>
   )
 }
