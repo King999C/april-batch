@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import RestaurantCard from './RestaurantCard'
 import ApiCalling from './ApiCalling'
 import Search from './Seach';
+import { Link } from 'react-router-dom';
 
 function Body() {
 
@@ -40,7 +41,9 @@ function Body() {
             {
                 allRestaurantArr.map((item)=>{
                     return(
-                        <RestaurantCard item={item} />
+                        <Link to={`/restaurant/${item.info.id}`}>
+                            <RestaurantCard item={item} />
+                        </Link>
                     )
                 })
             }
