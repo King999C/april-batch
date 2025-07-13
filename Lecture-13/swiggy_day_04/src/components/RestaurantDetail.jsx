@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../utils/cartSlice';
 
 function RestaurantDetail() {
     let {id} = useParams();
@@ -17,6 +19,11 @@ function RestaurantDetail() {
         }
         calling()
     } , [id])
+
+    const dispatch = useDispatch()
+    function handleAddItem(foodItem){
+        dispatch( addItem(foodItem) ) //payload
+    }
 
   return (
     <div>
@@ -35,7 +42,7 @@ function RestaurantDetail() {
                         src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${foodItem.card.info.imageId}`}
                         alt="" />
 
-                        <button className="border bg-green-300 h-8 relative top-16 right-5">
+                        <button onClick={()=>handleAddItem(foodItem)} className="border bg-green-300 h-8 relative top-16 right-5">
                         Add +
                         </button>
                     </div>
