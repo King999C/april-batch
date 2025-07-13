@@ -5,8 +5,11 @@ import { IoHelpBuoyOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Header() {
+    const cartItems = useSelector((store)=>store.cart.items);
+
   return (
     <div className='dark:bg-gray-900 text-white'>
         <nav className='flex justify-between items-center px-10 h-20'>
@@ -32,7 +35,7 @@ function Header() {
                 </div>
                 <div className='flex mx-4'>
                     <span className='mt-1'> <FaShoppingCart />  </span>
-                    <Link to="/cart"> <li className='px-2'>CART</li> </Link>
+                    <Link to="/cart"> <li className='px-2'>CART-{cartItems.length}</li> </Link>
                 </div>
             </ul>
         </nav>
